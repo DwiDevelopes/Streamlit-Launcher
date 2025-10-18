@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamlit Launcher - Statistik & Analisis Penelitian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <link rel="icon" type="image/x-icon" href="streamlit Launcher.ico">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.7s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        .hero-image {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src = "streamlit Launcher.ico" alt ="Logo" class="w-8 h-8">
+                    <h1 class="text-xl md:text-2xl font-bold">Streamlit Launcher</h1>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="hover:text-blue-200 transition-colors">Beranda</a>
+                    <a href="#features" class="hover:text-blue-200 transition-colors">Fitur</a>
+                    <a href="#download" class="hover:text-blue-200 transition-colors">Download</a>
+                    <a href="#about" class="hover:text-blue-200 transition-colors">Tentang</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu hidden md:hidden mt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="py-2 px-4 bg-blue-700 rounded-lg text-center hover:bg-blue-600 transition-colors">Beranda</a>
+                    <a href="#features" class="py-2 px-4 bg-blue-700 rounded-lg text-center hover:bg-blue-600 transition-colors">Fitur</a>
+                    <a href="#download" class="py-2 px-4 bg-blue-700 rounded-lg text-center hover:bg-blue-600 transition-colors">Download</a>
+                    <a href="#about" class="py-2 px-4 bg-blue-700 rounded-lg text-center hover:bg-blue-600 transition-colors">Tentang</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Platform Statistik & Analisis Penelitian Terintegrasi</h1>
+                    <p class="text-xl mb-8 text-blue-100 animate-slide-up" style="animation-delay: 0.2s;">Streamlit Launcher memberikan Anda alat yang powerful untuk menganalisis data penelitian dengan visualisasi yang interaktif dan mudah digunakan.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 animate-slide-up" style="animation-delay: 0.4s;">
+                        <a href="#download" class="bg-white text-primary font-semibold py-3 px-6 rounded-lg shadow-lg download-btn text-center">Download Sekarang</a>
+                        <a href="#features" class="bg-transparent border-2 border-white text-white font-semibold py-3 px-6 rounded-lg download-btn text-center">Pelajari Fitur</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="hero-image">
+                        <img src="icon.jpg" alt="Analisis Data" class="rounded-xl shadow-2xl max-w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Fitur Unggulan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-light p-6 rounded-xl card-hover animate-fade-in">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-chart-bar text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Analisis Statistik Lengkap</h3>
+                    <p class="text-gray-600">Lakukan analisis statistik deskriptif, inferensial, dan multivariat dengan antarmuka yang intuitif.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-light p-6 rounded-xl card-hover animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-brain text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Machine Learning</h3>
+                    <p class="text-gray-600">Implementasikan algoritma machine learning untuk prediksi dan klasifikasi data penelitian Anda.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-light p-6 rounded-xl card-hover animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-project-diagram text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Visualisasi Interaktif</h3>
+                    <p class="text-gray-600">Buat grafik, chart, dan dashboard interaktif untuk menampilkan hasil penelitian dengan menarik.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-light p-6 rounded-xl card-hover animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-file-export text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Ekspor Data & Laporan</h3>
+                    <p class="text-gray-600">Ekspor hasil analisis dalam berbagai format (PDF, Excel, PNG) untuk keperluan publikasi.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-light p-6 rounded-xl card-hover animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-mobile-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Akses Mobile</h3>
+                    <p class="text-gray-600">Akses dan analisis data penelitian Anda dari perangkat mobile dengan aplikasi khusus.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-light p-6 rounded-xl card-hover animate-fade-in" style="animation-delay: 0.5s;">
+                    <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-database text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Integrasi Database</h3>
+                    <p class="text-gray-600">Terhubung dengan berbagai sumber data seperti MySQL, PostgreSQL, MongoDB, dan lainnya.</p>
+                </div>
+            </div>
+            
+            <!-- Feature Video (Google Drive Embed) -->
+            <div class="mt-16 flex justify-center">
+            <iframe
+                src="https://drive.google.com/file/d/1obx6q2jQS1fRrNi1E4VpAPlyI_rR9nO5/preview"
+                class="w-full max-w-6xl h-[480px] rounded-2xl shadow-xl"
+                allow="autoplay"
+            ></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-dark mb-4">Download Streamlit Launcher</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Pilih platform yang sesuai dengan perangkat Anda dan mulailah menganalisis data penelitian dengan mudah.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Windows Download -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover animate-fade-in">
+                    <div class="flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mx-auto mb-6">
+                        <i class="fab fa-windows text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Windows</h3>
+                    <p class="text-gray-600 text-center mb-6">Kompatibel dengan Windows 10, 11, dan versi terbaru. Mendukung prosesor 64-bit.</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Instalasi mudah dengan wizard</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Optimized untuk performa tinggi</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Update otomatis</span>
+                        </li>
+                    </ul>
+                    <a href="assets/Streamlit Launcher.exe" 
+                    download="Streamlit Launcher.exe"
+                    class="w-full bg-primary hover:bg-primary/80 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300">
+                    <i class="fas fa-download"></i>
+                    Download untuk Windows
+                    </a>
+
+                    <p class="text-center text-gray-500 text-sm mt-2">Versi 2.2.2.5 | 85 MB</p>
+                </div>
+
+                <!-- Mobile Download -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mx-auto mb-6">
+                        <i class="fa-brands fa-python text-4xl text-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Offline All Device</h3>
+                    <p class="text-gray-600 text-center mb-6">Tersedia untuk perangkat OS manapun. Analisis data di mana saja.</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Antarmuka touch-friendly</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Sinkronisasi cloud</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Visualisasi yang dioptimalkan</span>
+                        </li>
+                    </ul>
+                    <a href="https://pypi.org/project/streamlit-launcher/" 
+                    download="Streamlit Launcher.exe"
+                    class="w-full bg-primary hover:bg-primary/80 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300">
+                    <i class="fas fa-download"></i>
+                    pip install streamlit-launcher
+                    </a>
+                    <p class="text-center text-gray-500 text-sm mt-2">Versi 2.2.5 | pypi</p>
+                </div>
+            </div>
+
+            <!-- System Requirements -->
+            <div class="max-w-4xl mx-auto mt-16 bg-white p-8 rounded-xl shadow-md animate-fade-in" style="animation-delay: 0.4s;">
+                <h3 class="text-2xl font-bold text-center mb-6">Persyaratan Sistem</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-primary">Windows Online</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Windows 10 atau yang lebih baru (64-bit)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Prosesor 1.5 GHz atau lebih cepat</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>RAM 4 GB (8 GB direkomendasikan)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Ruang penyimpanan 200 MB tersedia</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-accent">Pypi Offline Mode</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Offline mode untuk perangkat OS manapun</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>RAM 2 GB atau lebih</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Koneksi internet untuk sinkronisasi</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Layar 5 inci atau lebih besar</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-dark mb-12">Tentang Streamlit Launcher</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="animate-fade-in">
+                        <p class="text-gray-600 mb-4">
+                            Streamlit Launcher adalah platform analisis data penelitian yang dikembangkan khusus untuk memudahkan peneliti, akademisi, dan profesional dalam menganalisis data statistik dengan visualisasi yang interaktif.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            Dengan antarmuka yang intuitif dan fitur yang lengkap, Streamlit Launcher memungkinkan pengguna untuk fokus pada analisis tanpa harus khawatir dengan kompleksitas pemrograman.
+                        </p>
+                        <p class="text-gray-600">
+                            Platform ini mendukung berbagai jenis analisis statistik, dari yang paling dasar hingga teknik machine learning yang canggih, dengan kemampuan ekspor yang lengkap untuk keperluan publikasi.
+                        </p>
+                    </div>
+                    <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                        <div class="bg-gradient-to-br from-primary to-secondary p-1 rounded-xl">
+                            <div class="bg-white p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold mb-4">Tim Pengembang</h3>
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Dwi Bakti N Dev</h4>
+                                        <p class="text-gray-600 text-sm">Lead Developer & Founder</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Dwi Bakti N Dev</h4>
+                                        <p class="text-gray-600 text-sm">UI/UX Designer</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Dwi Bakti N Dev</h4>
+                                        <p class="text-gray-600 text-sm">Data Scientist</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            <!-- Feature Video (Google Drive Embed) -->
+            <div class="mt-16 flex justify-center">
+            <iframe
+                src="https://drive.google.com/file/d/1RD94cKgmYzbIf83jXz1cIPeweQeqx9CS/preview"
+                class="w-full max-w-6xl h-[480px] rounded-2xl shadow-xl"
+                allow="autoplay"
+            ></iframe>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Pertanyaan Umum</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm animate-fade-in">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold">Apakah Streamlit Launcher gratis?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden">Ya, Streamlit Launcher tersedia secara gratis untuk penggunaan pribadi dan akademik. Untuk penggunaan komersial, tersedia paket berlangganan dengan fitur tambahan.</p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold">Bagaimana cara mengimpor data ke aplikasi?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden">Anda dapat mengimpor data dari berbagai format file seperti CSV, Excel, JSON, atau terhubung langsung ke database seperti MySQL, PostgreSQL, dan MongoDB.</p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold">Apakah data saya aman?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden">Keamanan data adalah prioritas kami. Data Anda disimpan secara lokal di perangkat Anda dan tidak dikirim ke server kami tanpa izin eksplisit dari Anda.</p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold">Bagaimana cara mendapatkan bantuan teknis?</h3>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden">Anda dapat mengakses dokumentasi lengkap di website kami atau menghubungi tim dukungan teknis melalui email dwibakti76@gmail.com. Respons biasanya diberikan dalam waktu 24 jam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Tambahkan link CDN Swiper di <head> -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Kolom 1 -->
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <i class="fas fa-chart-line text-2xl text-primary"></i>
+          <h3 class="text-xl font-bold">Streamlit Launcher</h3>
+        </div>
+        <p class="text-gray-400">
+          Platform analisis data penelitian dengan visualisasi interaktif dan alat statistik yang lengkap.
+        </p>
+        <p class="text-gray-400 mt-2">
+          Dikembangkan oleh <span class="text-accent font-semibold">Dwi Bakti N Dev</span>
+        </p>
+      </div>
+
+      <!-- Kolom 2 -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Tautan Cepat</h4>
+        <ul class="space-y-2">
+          <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
+          <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Fitur</a></li>
+          <li><a href="#download" class="text-gray-400 hover:text-white transition-colors">Download</a></li>
+          <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Tentang</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom 3 (Dukungan diganti gambar slider) -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Pengembangan</h4>
+
+        <!-- Swiper container -->
+        <div class="swiper pengembangan-swiper rounded-xl overflow-hidden">
+          <div class="swiper-wrapper">
+            <!-- Gambar slide -->
+            <div class="swiper-slide">
+              <img src="foter/1.png" alt="Panduan Pengguna"
+                   class="w-full h-40 object-cover rounded-lg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="foter/2.png" alt="Forum Komunitas"
+                   class="w-full h-40 object-cover rounded-lg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="foter/3.png" alt="Dokumentasi"
+                   class="w-full h-40 object-cover rounded-lg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="foter/4.png" alt="Kontak Support"
+                   class="w-full h-40 object-cover rounded-lg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="foter/5.png" alt="Kontak Support"
+                   class="w-full h-40 object-cover rounded-lg" />
+            </div>
+          </div>
+
+          <!-- Navigasi -->
+          <div class="swiper-pagination mt-2"></div>
+        </div>
+      </div>
+
+      <!-- Kolom 4 -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Hubungi Kami</h4>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <i class="fas fa-envelope text-primary mr-2"></i>
+            <span class="text-gray-400">dwibakti76@gmail.com</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-phone text-primary mr-2"></i>
+            <span class="text-gray-400">+62 896 529 693 23</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+            <span class="text-gray-400">Tangerang, Indonesia</span>
+          </li>
+        </ul>
+
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; 2025 Streamlit Launcher. Dikembangkan oleh <span class="text-accent">Dwi Bakti N Dev</span>. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- SwiperJS Script -->
+<script>
+  const swiper = new Swiper(".pengembangan-swiper", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    spaceBetween: 10,
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 1 },
+      1024: { slidesPerView: 1 },
+    },
+  });
+</script>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Change icon
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.bg-white.p-6.rounded-xl.shadow-sm .flex').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                const icon = item.querySelector('i');
+                
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    answer.classList.add('hidden');
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Download button animation
+        document.querySelectorAll('.download-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Add animation class
+                this.classList.add('animate-pulse');
+                
+                // Remove animation class after animation completes
+                setTimeout(() => {
+                    this.classList.remove('animate-pulse');
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
